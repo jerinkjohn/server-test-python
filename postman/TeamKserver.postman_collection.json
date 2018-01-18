@@ -1,0 +1,109 @@
+{
+	"variables": [],
+	"info": {
+		"name": "TeamKserver",
+		"_postman_id": "47ed72da-17c9-0511-41a3-7111d381ff05",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"url": "http://127.0.0.1:5000/auth\n ",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"email\": \"tracy.tim@cognizant.com\", \"password\": \"password\" }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET User",
+			"request": {
+				"url": {
+					"raw": "http://127.0.0.1:5000/graphql?query=query {\n   user(id:\"1\"){\n    id, userId,firstName,\n    lastName,\n    role {\n      id\n      name\n    }\n  }\n  }",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"graphql"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "query {\n   user(id:\"1\"){\n    id, userId,firstName,\n    lastName,\n    role {\n      id\n      name\n    }\n  }\n  }\n ",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjUzNzcwODIzMTU4LCJpYXQiOjE1MTYxMDMxNTgsIm5iZiI6MTUxNjEwMzE1OCwiaWRlbnRpdHkiOiIxMTExMSJ9.fonf1NwDw4wmR60sYFyjB3bsJkZGRm0xzKSOXp2Ebz0",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"username\": \"22222\", \"password\": \"password\" }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET User - Debug - Without JWT",
+			"request": {
+				"url": {
+					"raw": "http://127.0.0.1:5000/graphql-debug?query=query {\n  user(id:\"1\"){\n    id, userId,firstName,\n    lastName,\n    role {\n      id\n      name\n    }\n  }\n  }",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"graphql-debug"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "query {\n  user(id:\"1\"){\n    id, userId,firstName,\n    lastName,\n    role {\n      id\n      name\n    }\n  }\n  }\n ",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"username\": \"22222\", \"password\": \"password\" }"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
